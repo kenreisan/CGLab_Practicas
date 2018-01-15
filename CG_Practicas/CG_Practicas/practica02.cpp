@@ -1,38 +1,15 @@
-//Semestre 2017 - 2
-//************************************************************//
-//************************************************************//
-//************** Alumno (s): Romero Hurtado Eduardo David ****//
-//*************											******//
-//*************	Visual Studio 2017 Comunity				******//
-//************************************************************//
-//************************************************************//
 //PARA EL REPORTE HACER LAS LETRAS "EDRH" Y UNA ESTRELLA DE 5 PICOS
 //ALTERNANDO UNA SOLO CONTORNO Y LA OTRA RELLENA
 
-
 #include "Main.h"
-//#include "practica02.h"
+#include "practica02.h"
 
-void InitGL(GLvoid)     // Inicializamos parametros
-{
-	//glShadeModel(GL_FLAT);							// Habilitamos Smooth Shading
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Negro de fondo
-														//glClearDepth(1.0f);									// Configuramos Depth Buffer
-														//glEnable(GL_DEPTH_TEST);							// Habilitamos Depth Testing
-														//glDepthFunc(GL_LEQUAL);								// Tipo de Depth Testing a realizar
-}
-
-void display(void)   // Creamos la funcion donde se dibuja
+void practica02(void)   // Creamos la funcion donde se dibuja
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Limiamos pantalla y Depth Buffer	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();									// Reinicializamos la actual matriz Modelview
 
-														//Poner aqui codigo ha dibujar
-														//glPointSize(10.0);
-														//glBegin(GL_LINE_LOOP);
-
-														//Trazo de la "E"
 	glBegin(GL_LINE_LOOP);
 	glColor3f(9.0, 9.0, 0.0);
 	glVertex3f(-2.0, 2.0, -1.2);
@@ -175,43 +152,4 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glEnd();
 
 	glFlush();
-}
-
-void reshape(int width, int height)   // Creamos funcion Reshape
-{
-	if (height == 0)										// Prevenir division entre cero
-	{
-		height = 1;
-	}
-
-	glViewport(0, 0, height, height);		//<---	Esta funcion hace que la imagen se deforme,
-											//		como le mando la altura 2 veces evita que eso pase.
-
-	glMatrixMode(GL_PROJECTION);						// Seleccionamos Projection Matrix
-	glLoadIdentity();
-
-	// Ortogonal
-	glOrtho(-10, 10, -14, 14, 0.1, 2);
-
-	glMatrixMode(GL_MODELVIEW);							// Seleccionamos Modelview Matrix
-	glLoadIdentity();
-}
-
-// Termina la ejecucion del programa cuando se presiona ESC
-void keyboard(unsigned char key, int x, int y)
-{
-	switch (key)
-	{
-	case 27: exit(0);
-		break;
-	}
-	glutPostRedisplay();
-}
-
-void animacion() {
-
-}
-
-void arrow_keys(int a_keys, int x, int y) {
-
 }
