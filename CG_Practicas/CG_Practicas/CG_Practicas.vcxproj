@@ -122,7 +122,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="practica02.cpp" />
-    <ClCompile Include="practica03.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="practica02.h" />
