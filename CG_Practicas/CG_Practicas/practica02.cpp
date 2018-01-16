@@ -4,6 +4,12 @@
 #include "Main.h"
 #include "practica02.h"
 
+
+void InitGL02(GLvoid)     // Inicializamos parametros
+{
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Negro de fondo
+}
+
 void practica02(void)   // Creamos la funcion donde se dibuja
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Limiamos pantalla y Depth Buffer	
@@ -152,4 +158,56 @@ void practica02(void)   // Creamos la funcion donde se dibuja
 	glEnd();
 
 	glFlush();
+}
+
+void reshape02(int width, int height)
+{
+	if (height == 0)										// Prevenir division entre cero
+	{
+		height = 1;
+	}
+
+	glViewport(0, 0, height, height);		//<---	Esta funcion hace que la imagen se deforme,
+											//		como le mando la altura 2 veces evita que eso pase.
+
+	glMatrixMode(GL_PROJECTION);						// Seleccionamos Projection Matrix
+	glLoadIdentity();
+
+	// Ortogonal
+	glOrtho(-10, 10, -14, 14, 0.1, 2);
+
+	glMatrixMode(GL_MODELVIEW);							// Seleccionamos Modelview Matrix
+	glLoadIdentity();
+}
+
+void keyboard02(unsigned char key, int x, int y)
+{
+	switch (key)
+	{
+	case 27: exit(0);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+void animacion02() {
+}
+
+void arrow_keys02(int a_keys, int x, int y) {
+}
+
+void inicio02() {
+
+	glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);	// Display Mode (Clores RGB y alpha | Buffer Sencillo )
+	
+	glutInitWindowSize(500, 500);					// Tamaño de la Ventana
+	glutCreateWindow("Practica 02");				// Nombre de la Ventana
+	glutInitWindowPosition(300, 0);					// Posicion de la Ventana
+	
+	InitGL02();										// Parametros iniciales de la aplicacion
+	glutDisplayFunc(practica02);					// Indicamos a Glut función de dibujo
+	glutReshapeFunc(reshape02);						// Indicamos a Glut función en caso de cambio de tamano
+	glutKeyboardFunc(keyboard02);						// Indicamos a Glut función de manejo de teclado
+	glutSpecialFunc(arrow_keys02);
+	glutIdleFunc(animacion02);
 }

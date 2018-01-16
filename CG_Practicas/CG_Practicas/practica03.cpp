@@ -1,9 +1,5 @@
-//Prisma (cS, CI, cD, cTsw, cF, cA, B, A))
-
-//#include <gl/gl.h>     // The GL Header File
-//#include <GL/glut.h>   // The GL Utility Toolkit (Glut) Header
-//#include <stdlib.h>
 #include "Main.h"
+#include "practica03.h"
 
 float angleX = 0.0f;
 float angleY = 0.0f;
@@ -12,17 +8,15 @@ float transX = 0.0f;
 float transY = 0.0f;
 float transZ = -5.0f;
 
-
-void InitGL ( GLvoid )     // Inicializamos parametros
+void InitGL03(GLvoid)     // Inicializamos parametros
 {
-
 	//glShadeModel(GL_SMOOTH);							// Habilitamos Smooth Shading
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Negro de fondo
 	glClearDepth(1.0f);									// Configuramos Depth Buffer
 	glEnable(GL_DEPTH_TEST);							// Habilitamos Depth Testing
-	//glEnable(GL_LIGHTING);
+														//glEnable(GL_LIGHTING);
 	glDepthFunc(GL_LEQUAL);								// Tipo de Depth Testing a realizar
-	//glEnable ( GL_COLOR_MATERIAL );
+														//glEnable ( GL_COLOR_MATERIAL );
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 }
 
@@ -90,7 +84,7 @@ void prisma(void)
 		glEnd();
 }
 
-void display ( void )   // Creamos la funcion donde se dibuja
+void practica03 ( void )   // Creamos la funcion donde se dibuja
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Limiamos pantalla y Depth Buffer
 	glMatrixMode(GL_MODELVIEW);
@@ -192,28 +186,11 @@ void display ( void )   // Creamos la funcion donde se dibuja
 
 
     glutSwapBuffers ( );
-    //glFlush();
+    glFlush();
     // Swap The Buffers
 }
 
-void reshape ( int width , int height )   // Creamos funcion Reshape
-{
-  if (height==0)										// Prevenir division entre cero
-	{
-		height=1;
-	}
-
-	glViewport(0,0,width,height);	
-
-	glMatrixMode(GL_PROJECTION);						// Seleccionamos Projection Matrix
-	glLoadIdentity();
-
-	// Tipo de Vista
-	//glOrtho(-5,5,-5,5,0.1,20);	
-	glFrustum (-0.1, 0.1,-0.1, 0.1, 0.1, 30.0);
-}
-
-void keyboard ( unsigned char key, int x, int y )  // Create Keyboard Function
+void keyboard03 ( unsigned char key, int x, int y )  // Create Keyboard Function
 {
 	switch ( key ) {
 		case 'w':
@@ -285,7 +262,7 @@ void keyboard ( unsigned char key, int x, int y )  // Create Keyboard Function
 	glutPostRedisplay();
 }
 
-void arrow_keys ( int a_keys, int x, int y )  // Funcion para manejo de teclas especiales (arrow keys)
+void arrow_keys03 ( int a_keys, int x, int y )  // Funcion para manejo de teclas especiales (arrow keys)
 {
   switch ( a_keys ) {
     case GLUT_KEY_UP:     // Presionamos tecla ARRIBA...
@@ -310,24 +287,35 @@ void arrow_keys ( int a_keys, int x, int y )  // Funcion para manejo de teclas e
   glutPostRedisplay();
 }
 
-
-int main ( int argc, char** argv )   // Main Function
+void reshape03(int width, int height)   // Creamos funcion Reshape
 {
-  glutInit            (&argc, argv); // Inicializamos OpenGL
-  //glutInitDisplayMode (GLUT_RGBA | GLUT_SINGLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Sencillo )
-  glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Doble )
-  glutInitWindowSize  (500, 500);	// Tamaño de la Ventana
-  glutInitWindowPosition (0, 0);	//Posicion de la Ventana
-  glutCreateWindow    ("Practica 3"); // Nombre de la Ventana
-  InitGL ();						// Parametros iniciales de la aplicacion
-  glutDisplayFunc     ( display );  //Indicamos a Glut función de dibujo
-  glutReshapeFunc     ( reshape );	//Indicamos a Glut función en caso de cambio de tamano
-  glutKeyboardFunc    ( keyboard );	//Indicamos a Glut función de manejo de teclado
-  glutSpecialFunc     ( arrow_keys );	//Otras
-  glutMainLoop        ( );          // 
+	if (height == 0)										// Prevenir division entre cero
+	{
+		height = 1;
+	}
 
-  return 0;
+	glViewport(0, 0, width, height);
+
+	glMatrixMode(GL_PROJECTION);						// Seleccionamos Projection Matrix
+	glLoadIdentity();
+
+	// Tipo de Vista
+	//glOrtho(-5,5,-5,5,0.1,20);	
+	glFrustum(-0.1, 0.1, -0.1, 0.1, 0.1, 30.0);
 }
 
+void animacion03() {
 
+}
 
+void inicio03(){
+	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Doble )
+	glutInitWindowSize(500, 500);	// Tamaño de la Ventana
+	glutInitWindowPosition(0, 0);	//Posicion de la Ventana
+	glutCreateWindow("Practica 3"); // Nombre de la Ventana
+	InitGL03();						// Parametros iniciales de la aplicacion
+	glutDisplayFunc(practica03);  //Indicamos a Glut función de dibujo
+	glutReshapeFunc(reshape03);	//Indicamos a Glut función en caso de cambio de tamano
+	glutKeyboardFunc(keyboard03);	//Indicamos a Glut función de manejo de teclado
+	glutSpecialFunc(arrow_keys03);	//Otras
+}
