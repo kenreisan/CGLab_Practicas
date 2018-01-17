@@ -7,8 +7,9 @@
 */
 
 #include "Main.h"
-#include "practica02.h"		//Cambiar el header dependiendo de la practica
+#include "practica02.h"		
 #include "practica03.h"
+#include "splatoon2.h"
 
 int opcion;
 
@@ -16,6 +17,7 @@ void menu() {
 	printf("\n  Practicas de laboratorio de computacion grafica\n");
 	printf("\n  0: Practica 02");
 	printf("\n  1: Practica 03");
+	printf("\n  2: Dibujo Splatoon 2");
 	printf("\n 99: Salir");
 	printf("\n\n  Elija la practica que desea abrir: ");
 	
@@ -34,6 +36,10 @@ void menu() {
 		case 1:
 			inicio03();
 		break;
+
+		case 2:
+			splatoon();
+			break;
 
 		default:
 			printf("\nEsa opcion no existe...\n");

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -123,10 +123,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="practica02.cpp" />
     <ClCompile Include="practica03.cpp" />
+    <ClCompile Include="splatoon2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="practica02.h" />
     <ClInclude Include="practica03.h" />
+    <ClInclude Include="splatoon2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
