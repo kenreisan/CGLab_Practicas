@@ -120,12 +120,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="atomo.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="practica02.cpp" />
     <ClCompile Include="practica03.cpp" />
     <ClCompile Include="splatoon2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="atomo.h" />
     <ClInclude Include="practica02.h" />
     <ClInclude Include="practica03.h" />
     <ClInclude Include="splatoon2.h" />

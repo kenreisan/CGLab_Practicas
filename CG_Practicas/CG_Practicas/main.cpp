@@ -7,17 +7,19 @@
 */
 
 #include "Main.h"
-#include "practica02.h"		
+#include "practica02.h"			
 #include "practica03.h"
 #include "splatoon2.h"
+#include "atomo.h"
 
 int opcion;
 
 void menu() {
 	printf("\n  Practicas de laboratorio de computacion grafica\n");
-	printf("\n  0: Practica 02");
-	printf("\n  1: Practica 03");
-	printf("\n  2: Dibujo Splatoon 2");
+	printf("\n  0: Practica 02 - Letras ERDH 2D");
+	printf("\n  1: Practica 03 - Letras EDRH 3D");
+	printf("\n  2: Tarea - Dibujo Splatoon 2");
+	printf("\n  6: Practica 06 - Atomo");
 	printf("\n 99: Salir");
 	printf("\n\n  Elija la practica que desea abrir: ");
 	
@@ -41,8 +43,12 @@ void menu() {
 			splatoon();
 			break;
 
+		case 6:
+			practica06();
+			break;
+
 		default:
-			printf("\nEsa opcion no existe...\n");
+			printf("\nEsa opción no existe...\n");
 			menu();
 		break;
 	}
