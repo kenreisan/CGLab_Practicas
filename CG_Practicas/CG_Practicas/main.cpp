@@ -11,6 +11,7 @@
 #include "practica03.h"
 #include "splatoon2.h"
 #include "atomo.h"
+#include "practica06.h"
 
 int opcion;
 
@@ -19,6 +20,7 @@ void menu() {
 	printf("\n  0: Practica 02 - Letras ERDH 2D");
 	printf("\n  1: Practica 03 - Letras EDRH 3D");
 	printf("\n  2: Tarea - Dibujo Splatoon 2");
+	printf("\n  5: Practica 06 - Sistema Solar");
 	printf("\n  6: Practica 06 - Atomo");
 	printf("\n 99: Salir");
 	printf("\n\n  Elija la practica que desea abrir: ");
@@ -41,6 +43,10 @@ void menu() {
 
 		case 2:
 			splatoon();
+			break;
+
+		case 5:
+			practica6();
 			break;
 
 		case 6:
